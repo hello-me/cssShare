@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+    .wrapper {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      margin: 50px;
+      background: #efefef;
+    }
+
+    .div {
+      perspective: 400px;
+      --deg-x: 0deg;
+      --deg-y: 0deg;
+      --width: 80px;
+      color: #fff;
+      text-align: center;
+      line-height: var(--width);
+      width: var(--width);
+      height: var(--width);
+      background-image: linear-gradient(90deg, #00f, #00f, #0f0);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: calc(-1 * var(--width) / 2);
+      margin-left: calc(-1 * var(--width) / 2);
+      transform: rotateX(var(--deg-y)) rotateY(var(--deg-x));
+    }
+  </style>
+</head>
+<body>
+在空白区域拖动
+<div class="wrapper">
+  <div class="div">Front</div>
+</div>
+<script type="text/javascript">
+  let Wrapper = document.querySelector('.wrapper')
+  let div = document.querySelector('.div')
+  let divStyles = getComputedStyle(div)
+  let moving = false
+  let degX = 0
+  let degY = 0
+  let beginAngleX = 0
+  let beginAngleY = 0
+  Wrapper.addEventListener('mousedown', function (e) {
+    moving = true
+    degX = parseFloat(divStyles.getPropertyValue('--deg-x'))
+    degX = parseFloat(divStyles.getPropertyValue('--deg-y'))
+    beginAngleX = e.offsetX
+    beginAngleY = e.offsetY
+  })
+  div.onselectstart = function (e) {
+    return false
+  }
+  document.addEventListener('mouseup', function (e) {
+    moving = false
+  })
+  Wrapper.addEventListener('mousemove', function (e) {
+    if (moving) {
+      console.log(e.offsetX, e.offsetY)
+      div.style.setProperty('--deg-x', e.offsetX - beginAngleX + degX + 'deg')
+      div.style.setProperty('--deg-y', degY - (e.offsetY - beginAngleY) + 'deg')
+    }
+  })
+</script>
+</body>
+</html>

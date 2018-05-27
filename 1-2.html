@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS变量的基本使用</title>
+    <style type="text/css">
+        /* 全局变量 */
+        :root {
+            --bg-color: blue;
+        }
+
+        .one, .two, .three {
+            width: 100px;
+            height: 30px;
+            margin: 20px;
+        }
+
+        /* 父级变量，会被子节点one、two继承 */
+
+        .bayMax {
+            --bg-color: yellow;
+        }
+
+        /* 子节点one中定义的变量会覆盖父级变量 */
+
+        .one {
+            --bg-color: orange;
+            background: var(--bg-color);
+        }
+
+        .two {
+            background: var(--bg-color);
+        }
+
+        .three {
+            background: var(--bg-color);
+        }
+    </style>
+</head>
+<body>
+<div class="bayMax">
+    <div class="one">one</div>
+    <div class="two">two</div>
+</div>
+<div class="three">three</div>
+</body>
+</html>

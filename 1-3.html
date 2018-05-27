@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS变量的基本使用</title>
+    <style type="text/css">
+        :root {
+            --width: 100px;
+        }
+
+        .box {
+            width: var(--width);
+            height: calc(var(--width) / 2);
+            background: darkviolet;
+            margin: 100px;
+            transition: all .5s;
+        }
+    </style>
+</head>
+<body>
+<div id="text"></div>
+<div class="box">one</div>
+</body>
+<script type="text/javascript">
+  const rootStyle = getComputedStyle(document.documentElement)
+
+  window.setInterval(() => {
+    let newWidth = Math.floor(Math.random() * 200 + 100) + 'px'
+    document.documentElement.style.setProperty('--width', newWidth)
+    document.querySelector('#text').innerHTML = rootStyle.getPropertyValue('--width')
+  }, 1000)
+</script>
+</html>

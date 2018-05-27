@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS变量的基本使用</title>
+  <style type="text/css">
+    .cssVariables {
+      --bg-color: #000;
+      width: 100px;
+      height: 30px;
+      margin: 20px;
+      background: var(--bg-color);
+    }
+  </style>
+</head>
+<body>
+<div class="cssVariables"></div>
+<script type="text/javascript">
+  let data = [
+    {
+      name: 'name1',
+      children: [
+        {
+          name: 'name1-1',
+          children: [
+            {
+              name: 'name1-1-1',
+              children: []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      name: 'name2',
+      children: [
+        {
+          name: 'name2-1',
+          children: [
+            {
+              name: 'name2-1-1',
+              children: []
+            }
+          ]
+        },
+        {
+          name: 'name2-2',
+          children: [
+            {
+              name: 'name2-2-1',
+              children: [
+                {
+                  name: 'name2-2-1-1',
+                  children: []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {name: 'name3', children: []}
+  ]
+  console.log(data)
+
+  function deep(item) {
+    return !(item.children && item.children.length > 0) ? 0 : item.children.length + item.children.reduce(function (total, item) {
+        return total + deep(item)
+      }, 0)
+  }
+  // 执行deep获取data[0]下的children数量
+  console.log(deep(data[1]))
+</script>
+</body>
+</html>
