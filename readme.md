@@ -352,7 +352,39 @@ svg内容很多，我就不一一介绍了，下面给大家展示几个结合sv
 
 
 ### SVG路径动画
+
+#### 首先介绍两个属性`stroke-dasharray` 和 `stroke-dashoffect`
+
+##### stroke-dasharray 属性
+
+`stroke-dasharray` 可以将路径绘制为虚线，用来定义描边的点线长度
+
+接收n个数字作为参数，参数之间用数字或者空格隔开
+
+如： 
 ```
-stroke-dasharray
-stroke-dashoffect
+stroke-dasharray: 2;
+stroke-dasharray: 2, 4;
+stroke-dasharray: 2 4 8;
 ```
+浏览器会循环使用列表中的数据指定线条和缺口的长度
+
+[代码示例](https://codepen.io/LcCode/pen/RyXEvG)
+
+##### stroke-dashoffect 属性
+
+`stroke-dashoffect`属性指定了dash模式到路径开始的距离
+
+可以是数值（可以取负数），也可以是百分比。
+
+[代码示例](https://codepen.io/LcCode/pen/aGeXOb)
+
+#### 实现路径动画
+
+当stroke-dasharray数值比路径的长度还要长时，就能用一段实线或一段缺口绘制整个路径。
+
+我们加上与路径长度相同的偏移值时，先绘制到路径上的就是缺口，就可以用缺口位置填充路径，路径不可见。
+
+当一点一点的改变偏移值时，实线就会一点点的显示出来。看起来就像是一点一点的绘制上去。这就实现了路径动画。
+
+如：[代码](https://codepen.io/LcCode/pen/rvXoGZ)
