@@ -388,4 +388,6 @@ stroke-dasharray: 2 4 8;
 当一点一点的改变偏移值时，实线就会一点点的显示出来。看起来就像是一点一点的绘制上去。这就实现了路径动画。
 
 如：[代码](https://codepen.io/LcCode/pen/rvXoGZ)
+
+
 [一个丑丑的大白]https://codepen.io/LcCode/pen/WyeNyQ
