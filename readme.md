@@ -389,5 +389,6 @@ stroke-dasharray: 2 4 8;
 
 如：[代码](https://codepen.io/LcCode/pen/rvXoGZ)
 
-[[一个丑丑的大白](https://codepen.io/LcCode/pen/WyeNyQ)
+[一个丑丑的大白](https://codepen.io/LcCode/pen/WyeNyQ)
+[...](https://codepen.io/LcCode/pen/ERxaZL)
 
