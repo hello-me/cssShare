@@ -298,7 +298,7 @@ CSS 动画属性大家都用过
 
     ani: 动画名，必须
     2s：动画时长，必须
-    ease：动画曲线，默认为ease
+    ease：动画曲线，默认为ease ：逐渐放慢 （1）linear：匀速（2）ease-in：加速（3）ease-out：减速（4）cubic-bezier函数：自定义速度模式
     1s：动画延时，默认为0
     infinite：动画播放次数，infinite表示无限，也可设为整数，表示具体多少次，默认不写为1
 
